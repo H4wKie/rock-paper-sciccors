@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+}
+
+#winner {
+    width: 60%;
+    text-align: center;
+    display: none;
+}
+
+.playerWon {
+    margin-bottom: 20px;
+}
+
+.message {
+    margin-bottom: 75px;
+}
+
+.playAgain {
+    margin: 0 auto;
+    width: 250px;
+    padding: 10px;
+    outline: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.playAgain::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 40%;
+    background: rgb(0, 0, 0, 0.2);
+    left: 0;
+    bottom: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 300ms ease;
+}
+
+.playAgain:hover::after {
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#gameFlex {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playerOne, .playerTwo {
+    width: 45%;
+    height: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerAndItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 400px;
+}
+
+.playerTwo>.playerAndItem {
+    flex-direction: row-reverse;
+}
+
+.player {
+    /* padding: 50px; */
+    position: relative;
+    width: 200px;
+    height: 300px;
+}
+
+.playerHead {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    outline: 8px solid black;
+    left: 50px;
+}
+
+.playerBody {
+    position: absolute;
+    height: 125px;
+    width: 8px;
+    background-color: black;
+    left: 96px;
+    top: 100px;
+}
+
+.playerBody::before {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 80px;
+    border-radius: 10px;
+    background: black;
+    transform: rotateZ(30deg);
+    top: 5px;
+    left: -20px;
+}
+
+.playerBody::after {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 80px;
+    border-radius: 10px;
+    background: black;
+    transform: rotateZ(-30deg);
+    top: 5px;
+    left: 20px;
+}
+
+.playerLegs::before {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 100px;
+    border-radius: 10px;
+    background: black;
+    transform: rotateZ(20deg);
+    left: 80px;
+    bottom: -20px;
+}
+
+.playerLegs::after {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 100px;
+    border-radius: 10px;
+    background: black;
+    transform: rotateZ(-20deg);
+    left: 112px;
+    bottom: -20px;
+}
+
+.item {
+    width: 175px;
+    height: 175px;
+    /* outline: 5px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.item>img {
+    height: 100px;
+}
+
+.chooseItem {
+    width: max-content;
+    border-radius: 30px;
+    outline: 3px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.computerPick {
+    padding: 10px;
+}
+
+.pickableItem {
+    padding: 10px;
+    cursor: pointer;
+    transition: 200ms ease-in;
+}
+
+.pickableItem:hover {
+    transform: translatey(-2px);
+}
+
+.pickableItem:nth-child(2) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.chosenItem {
+    display: none;
+    padding: 5px;
+}
+
+.visible {
+    display: block;
+    animation: picture ease-out;
+    animation-duration: 200ms;
+    animation-fill-mode: both;
+}
+
+@keyframes picture {
+    from{
+        transform: translateY(-10px);
+        opacity: 0;
+    }to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
